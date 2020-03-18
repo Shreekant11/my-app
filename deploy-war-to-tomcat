@@ -7,6 +7,7 @@ node{
       def mvnHome =  tool name: 'Maven-3.6.3', type: 'maven'   
       sh "${mvnHome}/bin/mvn package"
    }
+   def statusCode = sh script:script, returnStatus:true
    {
       
     sshagent(['tomcat-dev']) {
